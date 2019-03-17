@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Magic Food Box!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen"
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Crimson+Text" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css">
+</head>
+
+<body>
+    <div class="container my-5">
+        <!-- Separate div for add food form. -->
+        <div id="inputDiv" class="row">
+            <!-- Input text to add new food -->
+            <form id="foodForm">
+                <label for="foodInput" class="foodFormLabel">Add a food button!</label>
+                <input type="text" id="foodInput">
+
+                <!-- Button triggers new food to be added -->
+                <input id="addFood" type="submit" value="Search">
+        </div>
+
+        <!-- Buttons go here. -->
+        <div id="buttonsDiv" class="row"></div>
+
+        <!-- Gifs get dumped here. -->
+        <div id="gifsDiv" class="row"></div>
+    </div>
+
+
+    <script src="http://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="assets/javascript/app.js"></script>
+</body>
+
+</html>
