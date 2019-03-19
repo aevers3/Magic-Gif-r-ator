@@ -76,6 +76,7 @@ function createButtons() {
                 console.log(response.data[0].images.original.url);
                 // Clear out divs
                 $('#gifsDiv').empty();
+                $('#clearButtonDiv').empty();
                 // Create clear button, add button text and class for styling
                 const clearButton = $('<button>').text('Clear GIFs').addClass('clearButton');
                 // Switch clearButtonDiv to have a height of 50px, then append clear button to that div.
