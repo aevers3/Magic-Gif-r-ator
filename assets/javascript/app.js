@@ -6,7 +6,7 @@ var topics = [
     'Tacos',
     'Pasta',
     'Cake',
-    'Mangoes',
+    'Mango',
     'Pizza',
     'Lo Mein',
     'Cookies',
@@ -26,7 +26,11 @@ var randomTopics = [
     'Pie',
     'Nachos',
     'Guacamole',
-    'Popcorn'
+    'Popcorn',
+    'Sushi',
+    'Ramen',
+    'Quesadillas',
+    'Pancakes'
 ];
 // When clicked, this button randomly selects a food from randomTopics array, turns it into a button, and appends to buttonsDiv
 function addRandomButton() {
@@ -58,6 +62,8 @@ function createButtons() {
         newButton.text(topics[i]);
         // Add a data-name attribute and store to variable.
         newButton.attr('data-name', topics[i]);
+        
+        
         // Give each button an onclick function to query GIPHY API with the topic name.
         newButton.on('click', function () {
             let queryURL = `http://api.giphy.com/v1/gifs/search?q=${this.dataset.name}&api_key=27Ubg2BK3p0z3DeHppWslH5gy8UTHtBR`;
@@ -68,7 +74,20 @@ function createButtons() {
             }).then(function (response) {
                 console.log(response);
                 console.log(response.data[0].images.original.url);
+                // Clear out divs
                 $('#gifsDiv').empty();
+                // Create clear button, add button text and class for styling
+                const clearButton = $('<button>').text('Clear GIFs').addClass('clearButton');
+                // Switch clearButtonDiv to have a height of 50px, then append clear button to that div.
+                // This was done to achieve a cleaner view when no GIFs are displayed. The div is only visible when it's necessary.
+                $('#clearButtonDiv').css('height', '50px').append(clearButton);
+                // When clear button is clicked...
+                clearButton.on('click', function() {
+                    // Empty out gifs Div
+                    $('#gifsDiv').empty();
+                    // Get rid of clear button, collapse clearButtonDiv
+                    $('#clearButtonDiv').empty().css('height', '0px');
+                });
                 // Loop through the first 10 data items in response object.
                 for (j = 0; j < 10; j++) {
                     // Create a new div for the first 10 gifs in the response. Give them a class of newGifItem for css styling.
@@ -76,12 +95,12 @@ function createButtons() {
                     // Create new srcURL variable to add image source and download link attributes
                     let srcURL = response.data[j].images.original.url
                     // Create a new image element and add the source for each gif
-                    let newGifImage = $('<img>').attr('src', srcURL).css('width', '100%');
-                    // Give each new gif a data-state of animated to start.
-                    newGifImage.attr('data-state', 'animated').addClass('newGifImage');
+                    let newGifImage = $('<img>').attr('src', response.data[j].images.original_still.url).css('width', '100%');
+                    // Give each new gif a data-state of animated to start. Add a newGifImage class for styling.
+                    newGifImage.attr('data-state', 'still').addClass('newGifImage');
                     // Add a data-download-link attribute for download button
                     newGifImage.attr('data-download-link', srcURL)
-                    
+
                     // Give each gif a data-number.
                     newGifImage.attr('data-number', j)
                     // Add an onclick to each gif to toggle between running gif and still image.
@@ -100,6 +119,8 @@ function createButtons() {
                             $(this).attr('src', response.data[$(this).attr('data-number')].images.original_still.url)
                         };
                     });
+
+
                     // Extract rating data from response.
                     let newGifRating = response.data[j].rating;
                     // Append newGifImage and rating to newGifItem, then newGifItem to gifsDiv
@@ -114,8 +135,7 @@ function createButtons() {
             });
         });
 
-
-
+        // Append each completed button to DOM.
         $('#buttonsDiv').append(newButton);
     }
 }

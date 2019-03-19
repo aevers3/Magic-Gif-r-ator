@@ -1,8 +1,85 @@
 /* General Styling... */
 body {
-    background-image: url('../images/food-pattern-bg.jpg');
+    background-image: url('../images/food-bg.jpg');
+    background-repeat: repeat;
+    background-size: cover;
+    /* background-image: url('../images/food-bg.jpg'); */
 }
 
+h6 {
+    text-align: center;
+    font-family: 'Lato', sans-serif;
+    font-size: 1em;
+}
+
+.footer-container {
+    position: fixed;
+    bottom: 0;
+    height: 50px;
+    width: 100%;
+    padding-top: 15px;
+}
+
+/* Page header styles */
+.headerContainer {
+    height: 250px;
+    max-width: 1136px;
+    margin: auto;
+    position: relative;
+    background-image: radial-gradient(rgba(255,255,255,1), rgba(0,0,0,0));
+}
+
+.header-magic-text, .header-gif-text, .header-r-text, .header-ator-text, .header-food-edition-text {
+    position: absolute;
+}
+
+.header-magic-text {
+    font-size: 4.768em;
+    font-family: 'Satisfy', cursive;
+    left: 255px;
+    top: 0px;
+    color: #00B28C;
+    text-shadow: 0px 0px 10px #00FFC8;
+    
+}
+
+.header-gif-text, .header-ator-text {
+    font-size: 7.451em;
+    font-family: 'Bitter', serif;
+    color: #FF4200;
+    text-shadow: 2px 4px 4px rgba(0, 0, 0, .5);
+}
+
+.header-gif-text {
+    left: 150px;
+    top: 80px;
+}
+
+.header-r-text {
+    font-size: 9.313em;
+    left: 370px;
+    top: 55px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: #118E73;
+    text-shadow: 2px 4px 8px rgba(0, 0, 0, .5);
+    transform: rotate(-15deg);
+    z-index: 2;
+}
+
+.header-ator-text {
+    left: 450px;
+    top: 80px;
+}
+
+.header-food-edition-text {
+    font-size: 2.441em;
+    font-family: 'Lato', sans-serif;
+    color: #004234;
+    left: 730px;
+    top: 165px;
+}
+
+/* App styles... */
 .container {
     background-color: rgba(0, 0, 0, .8);
     min-height: 155px;
@@ -49,7 +126,7 @@ body {
     border-radius: 25px;
     padding: 5px 20px 10px;
     color: white;
-    background-color: green;
+    background-color: #118E73;
     box-shadow: 0px 2px 2px rgba(0, 0, 0, .5);
     border: 0;
 }
@@ -60,7 +137,7 @@ body {
 }
 
 .randomButton:hover, #addFood:hover {
-    background-color: darkgreen;
+    background-color: rgb(17, 110, 90);
 }
 
 .ratingLabel {
@@ -83,11 +160,27 @@ body {
     text-decoration: none;
 }
 
-
-
 .ratingText {
     text-transform: uppercase;
     font-weight: bolder;
+}
+
+#clearButtonDiv {
+    width: 100%;
+}
+
+.clearButton {
+    margin: auto;
+    width: 50%;
+    background-color: rgb(87, 1, 1);
+    color: white;
+    border-radius: 25px;
+    border: 0;
+    box-shadow: 2px 4x 4px rgba(0, 0, 0, 1);
+}
+
+.clearButton:hover {
+    background-color: maroon;
 }
 
 #buttonsDiv, #inputDiv {
@@ -133,6 +226,43 @@ body {
     }
 }
 
+
+
+/* Header on narrower screens... */
+@media only screen and (max-width: 992px) {
+    .headerContainer {
+        max-width: 716px;
+    }
+
+    .header-magic-text {
+        font-size: 3.815em;
+        top: 15px;
+        left: 95px;
+    }
+    
+    .header-gif-text {
+        font-size: 5.96em;
+        left: 10px;
+    }
+
+    .header-r-text {
+        font-size: 7.451em;
+        left: 195px;
+    }
+
+    .header-ator-text {
+        font-size: 5.96em;
+        left: 270px;
+    }
+
+    .header-food-edition-text {
+        font-size: 1.953em;
+        top: 150px;
+        left: 500px;
+    }
+}
+
+
 @media only screen and (max-width: 770px) {
     .newGifItem {
         min-width: 315px;
@@ -151,6 +281,79 @@ body {
     #inputDiv {
         min-height: 120px;
     }
+
+    /* Header Styling for < 770px */
+    .headerContainer {
+        max-width: 536px;
+        height: 200px;
+    }
+
+    .header-magic-text {
+        font-size: 3.815em;
+        top: 0px;
+        left: 95px;
+    }
+    
+    .header-gif-text {
+        font-size: 5.96em;
+        top: 60px;
+        left: 10px;
+    }
+    
+    .header-r-text {
+        font-size: 7.451em;
+        top: 40px;
+        left: 195px;
+    }
+    
+    .header-ator-text {
+        font-size: 5.96em;
+        left: 270px;
+        top: 60px;
+    }
+
+    .header-food-edition-text {
+        font-size: 1.953em;
+        top: 165px;
+        left: 320px;
+    }
+}
+
+@media only screen and (max-width: 520px) {
+    .headerContainer {
+        max-width: 100%;
+        height: 150px;
+    }
+
+    .header-magic-text {
+        font-size: 3.052em;
+        top: 0px;
+        left: 125px;
+    }
+    
+    .header-gif-text {
+        font-size: 3.815em;
+        top: 60px;
+        left: 70px;
+    }
+    
+    .header-r-text {
+        font-size: 4.768em;
+        top: 45px;
+        left: 190px;
+    }
+    
+    .header-ator-text {
+        font-size: 3.815em;
+        left: 240px;
+        top: 60px;
+    }
+
+    .header-food-edition-text {
+        font-size: 1.563em;
+        top: 125px;
+        left: 250px;
+    }
 }
 
 @media only screen and (max-width: 480px) {
@@ -163,5 +366,35 @@ body {
 
     #inputDiv {
         height: 150px;
+    }
+
+    .header-magic-text {
+        font-size: 3.052em;
+        top: 0px;
+        left: 95px;
+    }
+    
+    .header-gif-text {
+        font-size: 3.815em;
+        top: 60px;
+        left: 40px;
+    }
+    
+    .header-r-text {
+        font-size: 4.768em;
+        top: 45px;
+        left: 160px;
+    }
+    
+    .header-ator-text {
+        font-size: 3.815em;
+        left: 210px;
+        top: 60px;
+    }
+
+    .header-food-edition-text {
+        font-size: 1.563em;
+        top: 125px;
+        left: 220px;
     }
 }
