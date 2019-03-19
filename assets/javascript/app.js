@@ -66,7 +66,7 @@ function createButtons() {
         
         // Give each button an onclick function to query GIPHY API with the topic name.
         newButton.on('click', function () {
-            let queryURL = `http://api.giphy.com/v1/gifs/search?q=${this.dataset.name}&api_key=27Ubg2BK3p0z3DeHppWslH5gy8UTHtBR`;
+            let queryURL = `https://api.giphy.com/v1/gifs/search?q=${this.dataset.name}&api_key=27Ubg2BK3p0z3DeHppWslH5gy8UTHtBR`;
             $.ajax({
                 url: queryURL,
                 method: "GET"
