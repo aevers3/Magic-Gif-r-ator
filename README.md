@@ -3,6 +3,8 @@
 ##The Challenge
 Develop an application that can use buttons to call the Giphy API and display the returned gifs onscreen.
 
+![alt text](assets/images/magic-gif-r-ator-screenshot.png "Logo Title Text 1")
+
 ##The Solution
 This app uses jQuery to make a front-end AJAX call to the Giphy API. It then displays the gifs onscreen in an organized fashion. Additionally, Gifs can be paused or started by clicking on them.
 
