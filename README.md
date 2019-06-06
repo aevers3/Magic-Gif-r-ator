@@ -11,3 +11,5 @@ This app uses jQuery to make a front-end AJAX call to the Giphy API. It then dis
 An added feature is the ability to add a button. The button label can be customized and will be used in the request sent to Giphy. Users can also choose to add a "random" button, which will randomly select an item from a local array and use that as the button label and search term.
 
 Technologies used: HTML5, CSS3, JS, jQuery, Giphy API.
+
+Currently deployed at https://aevers3.github.io/Magic-Gif-r-ator/
